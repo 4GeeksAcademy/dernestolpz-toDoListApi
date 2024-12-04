@@ -1,11 +1,11 @@
-/* Reset basic styles */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* General body and container styles */
+
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f6f9;
@@ -25,7 +25,7 @@ body {
   padding: 20px;
 }
 
-/* Todo input field and styles */
+
 .input-group {
   margin-bottom: 20px;
 }
@@ -48,7 +48,7 @@ body {
   color: #aaa;
 }
 
-/* Todo items and card styles */
+
 .todos {
   margin-top: 20px;
 }
@@ -81,7 +81,7 @@ body {
   color: #c0392b;
 }
 
-/* Responsiveness */
+
 @media (max-width: 600px) {
   .container {
     width: 90%;
@@ -98,18 +98,4 @@ body {
   }
 }
 
-/* Botón para eliminar todas las tareas */
-button.btn-danger {
-  background-color: #e74c3c;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-button.btn-danger:hover {
-  background-color: #c0392b;
-}

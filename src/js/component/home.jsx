@@ -4,7 +4,7 @@ const Home = () => {
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState('');
 
-  // Cargar tareas desde la API
+  
   useEffect(() => {
     fetch('https://playground.4geeks.com/todo/users/dernestolpz')
       .then(resp => resp.json())
@@ -15,7 +15,7 @@ const Home = () => {
       });
   }, []);
 
-  // Crear una nueva tarea
+  
   const createTodo = async (task) => {
     const response = await fetch('https://playground.4geeks.com/todo/todos/dernestolpz', {
       method: 'POST',
@@ -31,7 +31,7 @@ const Home = () => {
     setTodos((prevTodos) => [...prevTodos, newTodo]);
   };
 
-  // Manejar la acción de presionar "Enter"
+  
   const handleOnChange = (evt) => {
     if (evt.key === 'Enter' && evt.target.value.trim() !== '') {
       createTodo(evt.target.value);
@@ -39,20 +39,20 @@ const Home = () => {
     }
   };
 
-  // Eliminar una tarea específica
+  
   const handleOnDelete = async (id, deleteIndex) => {
-    // Verificar que el ID es correcto
+   
     console.log('Eliminando tarea con ID:', id);
 
     const response = await fetch(`https://playground.4geeks.com/todo/todos/${id}`, {
-      method: 'DELETE', // Asegúrate de que el método sea DELETE
+      method: 'DELETE', 
       headers: {
         'Content-Type': 'application/json'
       }
     });
 
     if (response.ok) {
-      // Si la tarea se eliminó correctamente, actualizar el estado en el frontend
+     
       const newTodos = todos.filter((_, index) => index !== deleteIndex);
       setTodos(newTodos);
     } else {
@@ -84,7 +84,7 @@ const Home = () => {
                   {item.label}
                   <i
                     className='fa fa-trash ms-4'
-                    onClick={() => handleOnDelete(item.id, index)} // Se pasa el id para eliminar de la API
+                    onClick={() => handleOnDelete(item.id, index)} 
                   ></i>
                 </div>
               </div>
