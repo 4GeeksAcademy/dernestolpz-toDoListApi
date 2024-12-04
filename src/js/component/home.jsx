@@ -61,11 +61,21 @@ const Home = () => {
     }
   };
 
+  const deleteAlltask = async () => {
+    
+    const deleteAllPromises = todos.map((item, index) => handleOnDelete(item.id, index));
+    
+    
+    await Promise.all(deleteAllPromises).then(() => setTodos([]));
+  };
+  
+
   
 
   return (
     <div className='container'>
       <div className='todos p-2'>
+         <button onClick={() => deleteAlltask()}>Eliminar todas las tareas</button>
         <div className='input-group input-group-sm mb-3 py-3 px-5'>
           <input
             value={inputValue}
@@ -91,6 +101,9 @@ const Home = () => {
             ))}
           </div>
         </div>
+        <h6 className='text-center'>
+           Hay {todos.length} tareas por hacer
+        </h6>
         
       </div>
     </div>
